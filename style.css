@@ -23,7 +23,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* навигация */
+* навигация */
 
 .header {
     padding: 20px;
@@ -64,6 +64,7 @@ html {
     font-family: 'MAK', sans-serif;
     color: brown;
 }
+
 
 
 
