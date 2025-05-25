@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'KudryashevHeadline-Regular';
+	src: url('../fonts/kudryashevheadline-regular.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/kudryashevheadline-regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/kudryashevheadline-regular.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/kudryashevheadline-regular.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/kudryashevheadline-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/kudryashevheadline-regular.svg#kudryashevheadline-regular') format('svg'); /* Chrome < 4, Legacy iOS */
+}
