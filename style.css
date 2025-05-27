@@ -171,6 +171,7 @@ img {
 .container p {
     margin-bottom: 0.7rem;
     color: rgb(240, 242, 243);
+     font-family: "Montserrat", sans-serif;
 }
 
 .catalog {
