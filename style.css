@@ -450,15 +450,13 @@ img {
 
 
 
-        
-  
-        
+      
         footer {
-            background: linear-gradient(135deg, #fff5f7, #fce4ec);
-            color: #6d3b47;
-            padding: 60px 0 30px;
-            border-top: 1px solid rgba(214, 51, 132, 0.2);
-            box-shadow: 0 -5px 15px rgba(214, 51, 132, 0.05);
+            background: linear-gradient(135deg, #fdf0f0, #fce8e8);
+            color: #6d3d3d;
+            padding: 70px 0 35px;
+            border-top: 1px solid rgba(204, 102, 102, 0.15);
+            box-shadow: 0 -4px 12px rgba(204, 102, 102, 0.05);
         }
         
         .footer-container {
@@ -467,22 +465,42 @@ img {
             justify-content: space-between;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-            gap: 40px;
+            padding: 0 30px;
+            gap: 50px;
         }
         
         .footer-section {
             flex: 1;
-            min-width: 250px;
+            min-width: 280px;
+        }
+        
+        .logo {
+            font-size: 2.1rem;
+            color: #c66363;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(198, 99, 99, 0.1);
+        }
+        
+        .tagline {
+            font-size: 1rem;
+            color: #9a5c5c;
+            margin-bottom: 30px;
+            max-width: 300px;
+            line-height: 1.5;
+            font-weight: 300;
+            letter-spacing: 0.3px;
         }
         
         .footer-section h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
+            font-size: 1.5rem;
+            margin-bottom: 28px;
             position: relative;
-            padding-bottom: 10px;
-            color: #fcb8da;
-            font-weight: 600;
+            padding-bottom: 12px;
+            color: #a64a4a;
+            font-weight: 500;
+            letter-spacing: 0.3px;
         }
         
         .footer-section h3::after {
@@ -490,10 +508,10 @@ img {
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 50px;
+            width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, #ff9eb6, #d63384);
-            border-radius: 3px;
+            background: linear-gradient(90deg, #e0a3a3, #c66363);
+            border-radius: 2px;
         }
         
         .resources-list {
@@ -501,38 +519,47 @@ img {
         }
         
         .resources-list li {
-            margin-bottom: 15px;
-            transition: transform 0.3s;
+            margin-bottom: 16px;
+            transition: transform 0.3s ease;
         }
         
         .resources-list li:hover {
-            transform: translateX(5px);
+            transform: translateX(7px);
         }
         
         .resources-list a {
-            color: #8a4b58;
+            color: #7d4a4a;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
-            padding: 8px 0;
+            padding: 10px 0;
+            font-weight: 400;
+            position: relative;
         }
         
         .resources-list a:hover {
-            color: #d63384;
+            color: #c66363;
         }
         
         .resources-list i {
-            margin-right: 12px;
-            font-size: 1.1rem;
-            background: rgba(214, 51, 132, 0.1);
-            width: 32px;
-            height: 32px;
+            margin-right: 15px;
+            font-size: 1.15rem;
+            background: rgba(198, 99, 99, 0.08);
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #d63384;
+            color: #c66363;
+            border: 1px solid rgba(198, 99, 99, 0.15);
+            transition: all 0.3s;
+        }
+        
+        .resources-list a:hover i {
+            background: rgba(198, 99, 99, 0.15);
+            transform: scale(1.1);
         }
         
         .contact-info {
@@ -542,73 +569,78 @@ img {
         .contact-info li {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
         
         .contact-icon {
             font-size: 1.1rem;
             color: #fff;
-            margin-right: 15px;
-            min-width: 32px;
-            height: 32px;
-            background: #d63384;
+            margin-right: 18px;
+            min-width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #d67a7a, #c66363);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 3px 8px rgba(214, 51, 132, 0.3);
+            box-shadow: 0 4px 8px rgba(198, 99, 99, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .contact-info li:hover .contact-icon {
+            transform: rotate(8deg);
         }
         
         .contact-text {
-            line-height: 1.6;
-            color: #6d3b47;
+            line-height: 1.65;
+            color: #6d3d3d;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+        
+        .contact-info li:hover .contact-text {
+            color: #a64a4a;
         }
         
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 25px;
+            gap: 18px;
+            margin-top: 30px;
         }
         
         .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(214, 51, 132, 0.1);
+            width: 44px;
+            height: 44px;
+            background: rgba(198, 99, 99, 0.08);
             border-radius: 50%;
-            color: #d63384;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            border: 1px solid rgba(214, 51, 132, 0.2);
+            color: #c66363;
+            font-size: 1.25rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(198, 99, 99, 0.15);
         }
         
         .social-links a:hover {
-            background: #d63384;
+            background: linear-gradient(135deg, #d67a7a, #c66363);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 12px rgba(214, 51, 132, 0.25);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 7px 15px rgba(198, 99, 99, 0.3);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            margin-top: 40px;
-            border-top: 1px solid rgba(214, 51, 132, 0.15);
-            font-size: 0.9rem;
-            color: #b76e79;
+            padding-top: 40px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(198, 99, 99, 0.1);
+            font-size: 0.95rem;
+            color: #9a5c5c;
+            letter-spacing: 0.5px;
+            font-weight: 300;
         }
         
-       
         
-        .logo {
-            font-size: 1.8rem;
-            color: #e1bfd0;
-            margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        } 
         
 
 
