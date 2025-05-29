@@ -4,20 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Наш ассортимент</title>
-        <link rel="stylesheet" href="catalog.css">       
-
+    <link rel="stylesheet" href="catalog.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
- 
+    <!-- иконки -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
 </head>
 <body>
+    <!-- Иконка корзины -->
+    <div class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <div class="cart-count">0</div>
+    </div>
+
     <div class="assortment-container">
         <div class="header-section">
             <h1 class="title">наши товары</h1>
-                <a href="index.html" class="to_form" target="_blank">На главную</a>    
+            <a href="flower_shop.html" class="to_form" target="_blank">На главную</a>
             <h2 class="subtitle">с вниманием к деталям</h2>
         </div>
 
         <div class="products-grid">
+            <!-- Карточка товара 1 -->
             <div class="product-card">
                 <div class="image-container">
                     <img src="https://i.pinimg.com/736x/1f/f4/d9/1ff4d94a1b3ec8da4b084bcf5943d25e.jpg" alt="Букет роз">
@@ -28,9 +36,14 @@
                     <div class="product-description">
                         <p>Нежные розовые бутоны с зеленым акцентом, диаметр букета 25 см</p>
                     </div>
+                    <!-- Добавляем кнопку Купить -->
+                    <button class="buy-btn" data-id="1" data-name="Розы" data-price="1500">
+                        <i class="fas fa-shopping-cart"></i> Купить
+                    </button>
                 </div>
             </div>
             
+            <!-- Карточка товара 2 -->
             <div class="product-card">
                 <div class="image-container">
                     <img src="https://i.pinimg.com/736x/0e/88/e8/0e88e859cad581f103ab5f3ba4a4c7a5.jpg" alt="Нежный микс">
@@ -41,9 +54,14 @@
                     <div class="product-description">
                         <p>Композиция из пионов и эустом, упакована в крафтовую бумагу</p>
                     </div>
+                    <!-- Добавляем кнопку Купить -->
+                    <button class="buy-btn" data-id="2" data-name="Нежный микс" data-price="1800">
+                        <i class="fas fa-shopping-cart"></i> Купить
+                    </button>
                 </div>
             </div>
             
+            <!-- Карточка товара 3 -->
             <div class="product-card">
                 <div class="image-container">
                     <img src="https://i.pinimg.com/736x/44/7c/9f/447c9fd5d7ffb972e8698e359ac02fc9.jpg" alt="Весенний букет">
@@ -54,9 +72,14 @@
                     <div class="product-description">
                         <p>Нежные тюльпаны и гиацинты в обрамлении зелени. Идеальный вариант для подарка в марте-апреле.</p>
                     </div>
+                    <!-- Добавляем кнопку Купить -->
+                    <button class="buy-btn" data-id="3" data-name="Весенний букет" data-price="1600">
+                        <i class="fas fa-shopping-cart"></i> Купить
+                    </button>
                 </div>
             </div>
             
+            <!-- Карточка товара 4 -->
             <div class="product-card">
                 <div class="image-container">
                     <img src="https://i.pinimg.com/736x/1e/91/3a/1e913ab7930c3842d935281276c8ffe7.jpg" alt="Фиолетовая сказка">
@@ -67,9 +90,249 @@
                     <div class="product-description">
                         <p>Роскошная композиция из пионов, ранункулюсов и веточек мимозы. Диаметр букета — 35 см.</p>
                     </div>
+                    <!-- Добавляем кнопку Купить -->
+                    <button class="buy-btn" data-id="4" data-name="Фиолетовая сказка" data-price="1900">
+                        <i class="fas fa-shopping-cart"></i> Купить
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Уведомление о добавлении в корзину -->
+    <div class="notification">
+        Товар добавлен в корзину!
+    </div>
+
+    <!-- Модальное окно корзины -->
+    <div class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Ваша корзина</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="cart-items">
+                    <!-- Товары будут добавляться сюда динамически -->
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-basket"></i>
+                        <p>Ваша корзина пуста</p>
+                    </div>
+                </div>
+                <div class="cart-total">
+                    <span>Итого:</span>
+                    <span class="total-price">0₽</span>
+                </div>
+                <button class="checkout-btn">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно подтверждения заказа -->
+    <div class="modal-overlay" id="confirmation-modal">
+        <div class="confirmation-modal">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="confirmation-text">
+                <h3>Спасибо за заказ!</h3>
+                <p>Ваш заказ успешно оформлен. Скоро наш администратор свяжется с вами для уточнения деталей.</p>
+            </div>
+            <button class="close-confirmation">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        // Объект для хранения корзины
+        let cart = [];
+        const cartIcon = document.querySelector('.cart-icon');
+        const cartCount = document.querySelector('.cart-count');
+        const modalOverlay = document.querySelector('.modal-overlay');
+        const closeModal = document.querySelector('.close-modal');
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const totalPriceElement = document.querySelector('.total-price');
+        const checkoutBtn = document.querySelector('.checkout-btn');
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const closeConfirmation = document.querySelector('.close-confirmation');
+        const notification = document.querySelector('.notification');
+
+        // Открытие корзины
+        cartIcon.addEventListener('click', () => {
+            updateCartDisplay();
+            modalOverlay.classList.add('active');
+        });
+
+        // Закрытие корзины
+        closeModal.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+
+        // Закрытие окна подтверждения
+        closeConfirmation.addEventListener('click', () => {
+            confirmationModal.classList.remove('active');
+        });
+
+        // Закрытие модальных окон при клике на оверлей
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+
+        confirmationModal.addEventListener('click', (e) => {
+            if (e.target === confirmationModal) {
+                confirmationModal.classList.remove('active');
+            }
+        });
+
+        // Добавление товара в корзину
+        document.querySelectorAll('.buy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const id = this.dataset.id;
+                const name = this.dataset.name;
+                const price = parseInt(this.dataset.price);
+                
+                // Проверяем, есть ли товар уже в корзине
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                // Обновляем счетчик корзины
+                updateCartCount();
+                
+                // Показываем уведомление
+                showNotification(`${name} добавлен в корзину!`);
+                
+                // Анимация кнопки
+                this.classList.add('clicked');
+                setTimeout(() => {
+                    this.classList.remove('clicked');
+                }, 300);
+            });
+        });
+
+        // Обновление счетчика корзины
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Показ уведомления
+        function showNotification(message) {
+            notification.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Обновление отображения корзины
+        function updateCartDisplay() {
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-basket"></i>
+                        <p>Ваша корзина пуста</p>
+                    </div>
+                `;
+                totalPriceElement.textContent = '0₽';
+                return;
+            }
+            
+            let totalPrice = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="item-info">
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-price">${item.price}₽ × ${item.quantity}</div>
+                    </div>
+                    <div class="item-actions">
+                        <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                        <div class="item-quantity">${item.quantity}</div>
+                        <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                        <button class="remove-btn" data-id="${item.id}">&times;</button>
+                    </div>
+                `;
+                
+                cartItemsContainer.appendChild(cartItem);
+            });
+            
+            totalPriceElement.textContent = `${totalPrice}₽`;
+            
+            // Добавляем обработчики для кнопок управления количеством
+            document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.id;
+                    const item = cart.find(item => item.id === id);
+                    
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                    } else {
+                        cart = cart.filter(item => item.id !== id);
+                    }
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.id;
+                    const item = cart.find(item => item.id === id);
+                    item.quantity += 1;
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.id;
+                    cart = cart.filter(item => item.id !== id);
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+        }
+
+        // Оформление заказа
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                showNotification('Добавьте товары в корзину!');
+                return;
+            }
+            
+            // Закрываем корзину
+            modalOverlay.classList.remove('active');
+            
+            // Показываем окно подтверждения
+            setTimeout(() => {
+                confirmationModal.classList.add('active');
+                
+                // Очищаем корзину
+                cart = [];
+                updateCartCount();
+            }, 300);
+        });
+    </script>
 </body>
 </html>
