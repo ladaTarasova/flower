@@ -450,7 +450,7 @@ img {
 
 
 
-      
+ 
         footer {
             background: linear-gradient(135deg, #fdf0f0, #fce8e8);
             color: #6d3d3d;
@@ -475,6 +475,7 @@ img {
         }
         
         .logo {
+            font-family: 'Playfair Display', serif;
             font-size: 2.1rem;
             color: #c66363;
             margin-bottom: 20px;
@@ -500,6 +501,7 @@ img {
             padding-bottom: 12px;
             color: #a64a4a;
             font-weight: 500;
+            font-family: 'Playfair Display', serif;
             letter-spacing: 0.3px;
         }
         
@@ -640,6 +642,33 @@ img {
             font-weight: 300;
         }
         
+        @media (max-width: 900px) {
+            .footer-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .footer-section h3 {
+                font-size: 1.4rem;
+            }
+            
+            .logo {
+                font-size: 1.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-container {
+                padding: 0 20px;
+            }
+            
+            .resources-list i,
+            .contact-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+            }
+        }
         
         
 
